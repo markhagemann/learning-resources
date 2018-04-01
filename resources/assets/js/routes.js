@@ -15,6 +15,11 @@ let routes = [
         name: 'hello',
         component: Hello
     },
+    {
+        path: '/users',
+        name: 'users.index',
+        component: UsersIndex,
+    },
 
 ];
 

@@ -1652,6 +1652,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -2309,6 +2310,10 @@ var render = function() {
         _vm._v(" |\n        "),
         _c("router-link", { attrs: { to: { name: "hello" } } }, [
           _vm._v("Hello World")
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "users.index" } } }, [
+          _vm._v("Users")
         ])
       ],
       1
@@ -16021,6 +16026,10 @@ var routes = [{
     path: '/hello',
     name: 'hello',
     component: __WEBPACK_IMPORTED_MODULE_1__views_Hello___default.a
+}, {
+    path: '/users',
+    name: 'users.index',
+    component: UsersIndex
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
