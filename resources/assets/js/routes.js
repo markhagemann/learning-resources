@@ -2,6 +2,7 @@ import VueRouter from 'vue-router';
 
 import Hello from './views/Hello';
 import Home from './views/Home';
+import UsersIndex from './views/UsersIndex';
 
 let routes = [
     {
