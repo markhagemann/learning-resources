@@ -1683,6 +1683,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1699,10 +1705,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         fetchData: function fetchData() {
+            var _this = this;
+
             this.error = this.users = null;
             this.loading = true;
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/users').then(function (response) {
-                console.log(response);
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('learning-resources/api/users').then(function (response) {
+                _this.loading = false;
+                _this.users = response.data;
+            }).catch(function (error) {
+                _this.loading = false;
+                _this.error = error.response.data.message || error.message;
             });
         }
     }
@@ -2359,7 +2371,21 @@ var render = function() {
     _vm._v(" "),
     _vm.error
       ? _c("div", { staticClass: "error" }, [
-          _vm._v("\n        " + _vm._s(_vm.error) + "\n    ")
+          _vm._v("\n        " + _vm._s(_vm.error) + "\n\n        "),
+          _c("p", [
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.fetchData($event)
+                  }
+                }
+              },
+              [_vm._v("\n                Try Again\n            ")]
+            )
+          ])
         ])
       : _vm._e(),
     _vm._v(" "),

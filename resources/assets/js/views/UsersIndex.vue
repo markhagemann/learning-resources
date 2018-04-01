@@ -6,6 +6,12 @@
 
         <div v-if="error" class="error">
             {{ error }}
+
+            <p>
+                <button @click.prevent="fetchData">
+                    Try Again
+                </button>
+            </p>
         </div>
 
         <ul v-if="users">
@@ -34,9 +40,13 @@ export default {
             this.error = this.users = null;
             this.loading = true;
             axios
-                .get('/api/users')
+                .get('learning-resources/api/users')
                 .then(response => {
-                    console.log(response);
+                    this.loading = false;
+                    this.users = response.data;
+                }).catch(error => {
+                    this.loading = false;
+                    this.error = error.response.data.message || error.message;
                 });
         }
     }
